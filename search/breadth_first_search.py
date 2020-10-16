@@ -16,12 +16,14 @@ class Graph:
             if not current.source in self.dict:
                 self.dict[current.source] = []
 
-            self.dict[current.source].append(current.destination)
+            if not current.destination in self.dict[current.source]:
+                self.dict[current.source].append(current.destination)
 
             if not current.destination in self.dict:
                 self.dict[current.destination] = []
 
-            self.dict[current.destination].append(current.source)
+            if not current.source in self.dict[current.destination]:
+                self.dict[current.destination].append(current.source)
 
     def print(self):
         for src in self.dict:
