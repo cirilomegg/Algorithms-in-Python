@@ -49,7 +49,7 @@ def bfs(graph, start):
 
     while not q.empty():
         current = q.get()
-        print(f'visiting {at}')
+        print(f'visiting {current}')
 
         for neighbour in graph[current]:
             if not neighbour in visited:
