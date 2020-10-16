@@ -35,17 +35,17 @@ class Graph:
         return self.dict
 
 
-def dfs(graph, at):
-    if visited[at]:
+def dfs(graph, current):
+    if visited[current]:
         return
 
-    visited[at] = True
-    print(f'visiting {at}')
+    visited[current] = True
+    print(f'visiting {current}')
 
-    if not at in graph.keys():
+    if not current in graph.keys():
         return
 
-    neighbours = graph[at]
+    neighbours = graph[current]
     for next in neighbours:
         dfs(graph, next)
 
@@ -55,7 +55,6 @@ if __name__ == "__main__":
         10, 11), Edge(11, 7), Edge(7, 3), Edge(3, 2), Edge(3, 4), Edge(3, 5), Edge(5, 6), Edge(6, 7)]
 
     graph = Graph(edges)
-    graph.print()
 
     visited = [False] * 12
     dfs(graph.get(), 0)
